@@ -1,245 +1,78 @@
 #include <stdio.h> 
 
-int torre, bispo, rainha, cavalo;
-int opcao;
-int opcaotorre, opcaobispo, opcaorainha, opcaocavalo;
+int cavalo1;
 
-int main () {
+void movimento_da_torre(int torre) { 
 
-do { 
+if(torre == 0) { 
 
-printf("\n\n1. para torre\n"); 
-printf("2. para bispo\n");
-printf("3. para rainha\n");
-printf("4. para o cavalo\n");
-printf("faça sua escolha (1, 2, 3 ou 4):\n");
-scanf("%d", &opcao);
-
-if (opcao == 1) {  
-
-printf("\n1. para andar 5 casas acima\n");
-printf("6. para andar 5 casas abaixos\n");
-printf("12. para andar 5 casas a direita\n");
-printf("18. para andar casas 5 a esquerda\n");
-printf("faça uma escolha (1, 6, 12 ou 18):\n");
-scanf("%d", &opcaotorre);
+return;
 
 }
 
-else if (opcao == 2) { 
+printf("\ntorre casa a direita\n");
 
-printf("\n1. para o bispo subir 5 casas na diagonal há direita\n");
-printf("6. para o bispo descer 5 casas na diagonal há direita\n");
-printf("11. para o bispo subir 5 casas na diagonal há esquerda\n");
-printf("16. para o bispo descer 5 casas na diagonal há esquerda\n");
-printf("faça sua escolha (1, 6, 11, ou 16):\n");
-scanf("%d", &opcaobispo);
-
-} else if (opcao == 3) { 
-
-printf("\n1. para a rainha subir 5 casas\n");
-printf("6. para a rainha descer 5 casas\n");
-printf("11. para a rainha mover 5 casas a direita\n");
-printf("16. para a rainha mover 5 casas a esquerda\n");
-printf("20. para a rainha subir 5 casa na diagonal a direita\n");
-printf("25. para a rainha descer 5 casas na diagonal a direita\n");
-printf("30. para a rainha subir 5 casas na diagonal a esquerda\n");
-printf("35. para a rainha descer 5 casas na diagonal a esquerda\n");
-printf("faça sua escolha: (1, 6, 11, 16, 20, 25, 30, ou 35):\n");
-scanf("%d", &opcaorainha);
-
-} else if (opcao == 4) { 
-
-printf("\n1: para mover duas casas acimas e uma a direita\n");
-printf("6. para mover duas casas acimas e uma a esquerda\n");
-printf("11. para mover duas casas abaixo e uma a direita\n");
-printf("16. para mover duas casas abaixos e uma a esquerda\n");
-scanf("%d", &opcaocavalo);
+movimento_da_torre (torre - 1);
 
 }
 
-if (opcao == 1) { 
+void movimento_do_bispo(int bispo) { 
 
-if(opcaotorre >= 1 && opcaotorre <= 5) { 
-torre+=5;
+if (bispo == 0) { 
 
-printf("\n torre andou 5 casas acimas...\n");
-
-} else if (opcaotorre <=11 && opcaotorre >=6 ) { 
-torre-=5;
-
-printf("\n a torre andou 5 casas abaixos...\n");
+return;
 
 }
 
-else if (opcaotorre >=12  && opcaotorre <= 17) { 
-torre+=5;
+printf("\nbispo moveu na diagonal a esquerda!\n");
 
-printf("\n a torre andou 5 casas a direita...\n");
-
-}
-
-else if(opcaotorre <=23 && opcaotorre >= 18) { 
-torre-=5;
-
-printf("\n a torre andou 5 casas a esquerda...\n");
-
-} 
-
-else { 
-
-printf("\n movimentos invalido!\n");
+movimento_do_bispo(bispo - 1);
 
 }
 
-printf("\nse deseja continuar digite 1, senão, digite 0:\n");
-scanf("%d", &opcao);
+void movimento_do_cavalo(int cavalo) { 
 
-if(opcao == 0) { 
+for(cavalo = 1; cavalo <= 1; cavalo++) { 
 
-printf("\n encerrando o jogo...\n");
+for(cavalo1 = 0; cavalo1 <= 1; cavalo1++) { 
 
-} 
+printf("\n cavalo moveu cima\n");
 
 }
 
-if (opcao == 2) { 
- 
-if(opcaobispo >= 1 && opcaobispo <= 5) { 
-bispo+=5;
-
-printf("\n o bispo subiu 5 casas na diagonal direita\n");
-
-} else if (opcaobispo >= 6 && opcaobispo <=10) { 
-bispo-=5;
-
-printf("\n o bispo desceu 5 casas na diagonal direita\n");
-
-} else if (opcaobispo >= 11 && opcaobispo <=15) { 
-bispo+=5;
-
-printf("\n o bispo subiu 5 casas na diagonal esquerda\n");
-
-} else if (opcaobispo >= 16 && opcaobispo <= 20) { 
-bispo-=5;
-
-printf("\n o bispo desceu 5 casas na diagonal esquerda\n");
-
-} else { 
-
-printf("\n movimento invalido. tente novamente!\n");
-
-} 
-
-printf("\nse deseja continuar, digite 1, se deseja sair, digite 0:\n");
-scanf("%d", &opcao);
-
-if (opcao == 0) { 
-
-printf("\n encerrando o jogo...\n");
+printf("direita...\n");
 
 }
 
 }
 
-if (opcao == 3) {  
+void movimento_da_rainha(int rainha) { 
 
-if(opcaorainha >= 1 && opcaorainha <=5) { 
-rainha+=5;
+if(rainha == 0) { 
 
-printf("\n a rainha andou 5 cinco casas acimas\n");
-
-} else if (opcaorainha >= 6 && opcaorainha <= 10) { 
-rainha-=5;
-
-printf("\n a rainha andou 5 casas abaixo\n");
-
-} else if (opcaorainha >= 11 && opcaorainha<= 15) { 
-rainha+=5;
-
-printf("\n a rainha andou 5 casas a direita\n");
-
-} else if (opcaorainha >= 16 && opcaorainha <= 19) { 
-rainha-=5;
-
-printf("\n a rainha andou 5 casas a esquerda\n");
-
-} else if (opcaorainha >= 20 && opcaorainha < 25) { 
-rainha+=5;
-
-printf("\n a rainha subiu 5 casas diagonal a direita\n");
-
-} else if (opcaorainha >= 25 && opcaorainha < 30 ) { 
-rainha-=5;
-
-printf("\n a rainha desceu 5 casas na diagonal a direita\n");
-
-} else if (opcaorainha >= 30 && opcaorainha < 35) { 
-rainha+=5;
-
-printf("\n a rainha subiu 5 casas na diagonal a esquerda\n");
-
-} else if (opcaorainha >= 35 && opcaorainha <= 40) { 
-
-printf("\n a rainha desceu 5 casas na diagonal a esquerda\n");
-
-} else { 
-
-printf("\n movimento invalido. tente novamente!\n");
+return;
 
 }
 
-printf("\nse deseja continuar, digite 1, se não digite 0:\n");
-scanf("%d", &opcao);
+printf("\nrainha moveu casa a esquerda!\n");
 
-if(opcao == 0) { 
-
-printf("\n encerrando o jogo...\n");
+movimento_da_rainha(rainha - 1);
 
 }
 
-}
+int main() { 
 
-if (opcao == 4) { 
+int torre = 5;
+movimento_da_torre(5);
 
-if(opcaocavalo >= 1 && opcaocavalo <= 5) { 
-cavalo++;
+int bispo = 5;
+movimento_do_bispo(5);
 
-printf("\n o cavalo andou duas casas acimas e virou uma a direita\n");
+movimento_do_cavalo(5);
 
-} else if (opcaocavalo >= 6 && opcaocavalo <= 10) { 
-cavalo++;
+int rainha = 8;
+movimento_da_rainha(8);
 
-printf("\n o cavalo andou duas casas acimas e virou uma a esquerda\n");
-
-} else if (opcaocavalo >= 11 && opcaocavalo <= 15) { 
-cavalo--;
-
-printf("\n o cavalo andou duas casas abaixo e virou uma a direita\n");
-
-} else if (opcaocavalo >= 16 && opcaocavalo <= 20) { 
-cavalo--;
-
-printf("\n o cavalo andou duas casas abaixo e virou uma a esquerda\n");
-
-} else { 
-
-printf("\n movimento invalido! tente novamente.\n");
-
-}
-
-printf("\nse deseja continuar, digite 1, se não digite 0:\n");
-scanf("%d", &opcao);
-
-if(opcao == 0) { 
-
-printf("\n encerrando o jogo...\n");
-
-}
-
-}
-
-} while (opcao == 1 || opcao == 2 || opcao == 3 || opcao == 4);
-
+return 0;
 
 }
